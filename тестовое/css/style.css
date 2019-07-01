@@ -1,0 +1,154 @@
+.body{
+  font-family: 'Ubuntu', sans-serif;
+  margin: 100px;
+}
+
+.clearfix{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.header{
+  min-height: 65px;
+  background: white;
+}
+
+.container{
+  width: 940;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+div.cal-year{
+  margin-top: 30px;
+}
+
+section {
+  border: 3px solid;
+  border-color: #92c29d;
+  border-radius:5px;
+  width: 185px;
+  background-color: #ebf5ec;
+}
+
+table{
+  margin: auto;
+}
+
+section.container{
+   padding: 5px;
+   float:left;
+   margin: 8px;
+}
+
+.line{
+  height: 1px;
+  width: 124px;
+  background-color: #8d978e;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+caption{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  color: #1d6739;
+  padding: 4px auto;
+}
+
+td, th{
+  background-color: #fff;
+  text-align: center;
+  min-width: 20px;
+  min-height: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  color: #1d6739;
+}
+
+a{
+  text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  color: #1d6739;
+}
+
+.off{
+  background-color: #ebf5ec;
+}
+
+.weekend{
+  background-color: #e2907a;
+  color: #fff;
+}
+
+.data{
+  margin-top: 25px;
+
+}
+
+.phone{
+  border: 3px solid #909090;
+  background-color: #ebebeb;
+  color: #afafaf;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 12px;
+  margin-left: 10px;
+}
+
+label{
+  margin-left: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 60px;
+}
+
+.booking-btn{
+  background-color: #68a977;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 12px 25px;
+  margin-left: 15px;
+}
+
+/*
+================================
+Системное оформление!!!!!!!!!!!!!!!
+======================
+ */
+
+
+ /* body > *,
+ body > * > *,
+ body > * > * > *,
+ body > * > * > * > * {
+   position: relative;
+ }
+
+ body > *{
+   background: rgba(0, 128, 0, 0.2);
+   box-shadow: 0 0 0 4px green;
+ }
+
+ body > * > *{
+   background: rgba(128, 0, 0, 0.2);
+   box-shadow: 0 0 0 3px red;
+ }
+
+ body > * > *> * {
+   background: rgba(0, 128, 128, 0.2);
+   box-shadow: 0 0 0 2px yellow;
+ }
+ body > * > *> * > *{
+   background: rgba(0, 0, 128, 0.2);
+   box-shadow: 0 0 0 1px blue;
+ } */
