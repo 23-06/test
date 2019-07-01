@@ -2,7 +2,6 @@
 $monthsName = json_decode(file_get_contents("months.json"), true);
 $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
 var_dump($_Get) ;
-
  ?>
 
 <!DOCTYPE html>
