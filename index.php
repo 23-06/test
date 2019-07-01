@@ -1,6 +1,11 @@
 <?php
 $monthsName = json_decode(file_get_contents("months.json"), true);
 $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
+$Changed = json_decode(file_get_contents("Changed.json"), true);
+
+$Changed[count($Changed)+1] = array('0'=>'2', '1'=>'3', '3'=>'+79235946626');
+file_put_contents(Changed.json, json_encode($Changed[count($Changed)]));
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +59,18 @@ $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
               }else {
                 $weekDayOfMonth = -1;
                 if($maxcount>$count){
-                  ?> <td <?php if(intval($_GET['month'])==$month && intval($_GET['day'])==$count) {echo ' class="change"';}?>><a href="index.php?month=<?php echo $month?>&day=<?php echo $count ?>"><?php echo $count; ?></a></td><?php
+                  ?> <td
+                        <?php
+                          for ($idchange=0; $idchange < count($Changed); $idchange++) {
+                            if ($month == intval($Changed[$idchange][0]) && $count == intval($Changed[$idchange][1])){
+                              echo ' class="changed"';
+                            }else{
+                              if(intval($_GET['month'])==$month && intval($_GET['day'])==$count) {echo ' class="change"';}
+                            }
+                          }
+                        ?>
+                     >
+                     <a href="index.php?month=<?php echo $month?>&day=<?php echo $count ?>"><?php echo $count; ?></a></td><?php
                     $count++;
                 }else {
                   ?> <td class="off"></td> <?php
@@ -74,15 +90,17 @@ $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
 
   </div>
 
-  <div class="data">
-    <label>Укажите телефон:</label>
-    <input class="phone"  id="phone" type="text" class="form-control">
-      <script>
-        $(function(){
-          $("#phone").mask("+7(999) 999-99-99");
-        });
-      </script>
-    <input class="booking-btn" type="button" value="Забронировать">
-  </div>
+    <form class="data" action="index.php" method="post">
+      <label>Укажите телефон:</label>
+      <input class="phone"  id="phone" name="phone" type="text" class="form-control">
+        <script>
+          $(function(){
+            $("#phone").mask("+7(999) 999-99-99");
+          });
+        </script>
+      <input class="booking-btn" type="submit" value="Забронировать">
+    </form>
+
+
 </body>
 </html>

@@ -15,7 +15,6 @@
 }
 
 .container{
-  width: 940px;
   margin: 0 auto;
   padding: 0 5px;
 }
@@ -60,7 +59,7 @@ caption{
 
 
 td, th{
-  background-color: yellow;
+  background-color: #fff;
   text-align: center;
   min-width: 20px;
   min-height: 20px;
@@ -71,7 +70,25 @@ td, th{
 }
 
 .change{
-  background-color: #ebf5ec;
+  background-color: green;
+  text-align: center;
+  min-width: 20px;
+  min-height: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  color: #1d6739;
+}
+
+.changed{
+  background-color: red;
+  text-align: center;
+  min-width: 20px;
+  min-height: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  color: #1d6739;
 }
 
 a{
