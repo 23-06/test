@@ -1,8 +1,7 @@
 <?php
 $monthsName = json_decode(file_get_contents("months.json"), true);
 $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
-var_dump($_Get) ;
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +10,10 @@ var_dump($_Get) ;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Бронирование даты</title>
+  <link href="css/style.css" rel="stylesheet">
   <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
   <script src="js/jquery.maskedinput.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
@@ -55,7 +54,7 @@ var_dump($_Get) ;
               }else {
                 $weekDayOfMonth = -1;
                 if($maxcount>$count){
-                  ?> <td ><a href="index.php?month=<?php echo $month?>&day=<?php echo $count ?>"><?php echo $count; ?></a></td><?php
+                  ?> <td <?php if(intval($_GET['month'])==$month && intval($_GET['day'])==$count) {echo ' class="change"';}?>><a href="index.php?month=<?php echo $month?>&day=<?php echo $count ?>"><?php echo $count; ?></a></td><?php
                     $count++;
                 }else {
                   ?> <td class="off"></td> <?php
