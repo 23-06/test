@@ -3,8 +3,11 @@ $monthsName = json_decode(file_get_contents("months.json"), true);
 $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
 $Changed = json_decode(file_get_contents("Changed.json"), true);
 
-$Changed[count($Changed)+1] = array('0'=>'2', '1'=>'3', '3'=>'+79235946626');
-file_put_contents(Changed.json, json_encode($Changed[count($Changed)]));
+$Changed[count($Changed)] = array('0'=>'2', '1'=>'3', '3'=>'+79235946626');
+
+file_put_contents('Changed.json', $Changed);
+
+var_dump($Changed);
 
 ?>
 
@@ -91,7 +94,7 @@ file_put_contents(Changed.json, json_encode($Changed[count($Changed)]));
   </div>
 
     <form class="data" action="index.php" method="post">
-      <label>Укажите телефон:</label>
+      <label>Укажите телефон:</label></br>
       <input class="phone"  id="phone" name="phone" type="text" class="form-control">
         <script>
           $(function(){
