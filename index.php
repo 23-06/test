@@ -1,14 +1,7 @@
 <?php
-$monthsName = json_decode(file_get_contents("months.json"), true);
-$DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
-$Changed = json_decode(file_get_contents("Changed.json"), true);
+session_start();
 
-$Changed[count($Changed)] = array('0'=>'2', '1'=>'3', '3'=>'+79235946626');
-
-file_put_contents('Changed.json', $Changed);
-
-var_dump($Changed);
-
+include("input.php");
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +61,7 @@ var_dump($Changed);
                             if ($month == intval($Changed[$idchange][0]) && $count == intval($Changed[$idchange][1])){
                               echo ' class="changed"';
                             }else{
-                              if(intval($_GET['month'])==$month && intval($_GET['day'])==$count) {echo ' class="change"';}
+                              if(intval($_SESSION['month'])==$month && intval($_SESSION['day'])==$count) {echo ' class="change"';}
                             }
                           }
                         ?>
@@ -101,7 +94,7 @@ var_dump($Changed);
             $("#phone").mask("+7(999) 999-99-99");
           });
         </script>
-      <input class="booking-btn" type="submit" value="Забронировать">
+      <input class="booking-btn" name="submit" type="submit" value="Забронировать">
     </form>
 
 
