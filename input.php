@@ -2,7 +2,7 @@
 
 $monthsName = json_decode(file_get_contents("months.json"), true);
 $DaysOfTheWeek = json_decode(file_get_contents("DaysOfTheWeek.json"), true);
-$Changed = json_decode(file_get_contents("Changed.json"), true);
+$Changed = json_decode(file_get_contents("qweryChanged.json"), true);
 
 if (isset($_GET["month"]) && isset($_GET["day"])){
   $_SESSION["month"] = $_GET["month"];
@@ -12,8 +12,12 @@ if (isset($_GET["month"]) && isset($_GET["day"])){
 
 if (isset($_POST["submit"]) && !empty($_POST["phone"])){
   if (!empty($_SESSION)) {
-    $Changed[count($Changed)] = array('0'=>strval($_SESSION["month"]), '1'=>strval($_SESSION["day"]), '3'=>strval($_POST["phone"]));
-    file_put_contents('Changed.json', json_encode($Changed));
+    $Changed[] = array("month"=>strval($_SESSION["month"]), "day"=>strval($_SESSION["day"]), "phone"=>strval($_POST["phone"]));
+    if (file_put_contents ("qweryChanged.json", json_encode($Changed))){
+      echo ("<script type='text/javascript'> alert('За Вами забронирована дата.');</script>");
+    }else {
+      echo ("<script type='text/javascript'> alert('Что-то пошло не так, бронь на данную дату не произведена. Попробуйте добавить позже.');</script>");
+    };
     unset($_SESSION); unset($_POST);
   }else{
     echo ("<script type='text/javascript'> alert('Выберите дату.');</script>");

@@ -2,6 +2,7 @@
 session_start();
 
 include("input.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +59,7 @@ include("input.php");
                   ?> <td
                         <?php
                           for ($idchange=0; $idchange < count($Changed); $idchange++) {
-                            if ($month == intval($Changed[$idchange][0]) && $count == intval($Changed[$idchange][1])){
+                            if ($month == intval($Changed[$idchange]["month"]) && $count == intval($Changed[$idchange]["day"])){
                               echo ' class="changed"';
                             }else{
                               if(intval($_SESSION['month'])==$month && intval($_SESSION['day'])==$count) {echo ' class="change"';}
