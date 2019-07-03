@@ -13,11 +13,7 @@ if (isset($_GET["month"]) && isset($_GET["day"])){
 if (isset($_POST["submit"]) && !empty($_POST["phone"])){
   if (!empty($_SESSION)) {
     $Changed[count($Changed)] = array('0'=>strval($_SESSION["month"]), '1'=>strval($_SESSION["day"]), '3'=>strval($_POST["phone"]));
-    if (file_put_contents('Changed.json', json_encode($Changed))) {
-      echo ("<script type='text/javascript'> alert('writed');</script>");
-    }else{
-      echo ("<script type='text/javascript'> alert('don't writed');</script>");
-    }
+    file_put_contents('Changed.json', json_encode($Changed));
     unset($_SESSION); unset($_POST);
   }else{
     echo ("<script type='text/javascript'> alert('Выберите дату.');</script>");
